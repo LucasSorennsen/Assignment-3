@@ -16,7 +16,7 @@ namespace Assignment3.Tests
         [SetUp]
         public void SetUp()
         {
-            //this.users = new SLL();
+            this.users = new SLL();
 
             users.AddLast(new User(1, "Joe Blow", "jblow@gmail.com", "password"));
             users.AddLast(new User(2, "Joe Schmoe", "joe.schmoe@outlook.com", "abcdef"));

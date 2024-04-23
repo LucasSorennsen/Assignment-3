@@ -113,7 +113,7 @@ namespace Assignment3.Utility
 
             if (index == 0)
             {
-                DeleteFromBeginning();
+                RemoveFirst();
                 return;
             }
 

@@ -20,14 +20,14 @@ namespace Assignment3.Utility
             return head == null;
         }
 
-        public void Prepend(int data)
+        public void AddFirst(int data)
         {
             Node newNode = new Node(data);
             newNode.next = head;
             head = newNode;
         }
 
-        public void Append(int data)
+        public void AddLast(int data)
         {
             Node newNode = new Node(data);
             if (head == null)
@@ -44,14 +44,14 @@ namespace Assignment3.Utility
             current.next = newNode;
         }
 
-        public void InsertAtIndex(int index, int data)
+        public void Add(int index, int data)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index must be non-negative.");
 
             if (index == 0)
             {
-                Prepend(data);
+                AddFirst(data);
                 return;
             }
 
@@ -82,7 +82,7 @@ namespace Assignment3.Utility
             current.data = data;
         }
 
-        public void DeleteFromBeginning()
+        public void RemoveFirst()
         {
             if (head != null)
             {
@@ -90,7 +90,7 @@ namespace Assignment3.Utility
             }
         }
 
-        public void DeleteFromEnd()
+        public void RemoveLast()
         {
             if (head == null || head.next == null)
             {
@@ -106,7 +106,7 @@ namespace Assignment3.Utility
             current.next = null;
         }
 
-        public void DeleteFromMiddle(int index)
+        public void Remove(int index)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index must be non-negative.");
@@ -130,7 +130,7 @@ namespace Assignment3.Utility
             }
         }
 
-        public int FindAndRetrieve(int index)
+        public int GetValue(int index)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index must be non-negative.");

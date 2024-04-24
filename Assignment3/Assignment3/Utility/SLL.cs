@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Assignment3.Utility
 {
-    public class SLL
+    public class SLL : ILinkedListADT
     {
-        private Node head;
+        public Node head;
+        public Node tail;
 
         public SLL()
         {
-            head = null;
+            this.head = null;
+            this.tail = null;
         }
 
         public bool IsEmpty()
@@ -20,14 +22,20 @@ namespace Assignment3.Utility
             return head == null;
         }
 
-        public void AddFirst(int data)
+        public void Clear() 
+        { 
+            head = null; 
+            tail = null; 
+        }
+
+        public void AddFirst(User data)
         {
             Node newNode = new Node(data);
             newNode.next = head;
             head = newNode;
         }
 
-        public void AddLast(int data)
+        public void AddLast(User data)
         {
             Node newNode = new Node(data);
             if (head == null)
@@ -44,7 +52,7 @@ namespace Assignment3.Utility
             current.next = newNode;
         }
 
-        public void Add(int index, int data)
+        public void Add(User data, int index)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index must be non-negative.");
@@ -67,7 +75,7 @@ namespace Assignment3.Utility
             current.next = newNode;
         }
 
-        public void Replace(int index, int data)
+        public void Replace(User data, int index)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index must be non-negative.");
@@ -80,6 +88,19 @@ namespace Assignment3.Utility
                 current = current.next;
             }
             current.data = data;
+        }
+
+        public int Count()
+        {
+            int count = 0;
+            Node current = head;
+            while (current != null)
+            {
+                count++;
+                current = current.next;
+            }
+
+            return count;
         }
 
         public void RemoveFirst()
@@ -130,7 +151,23 @@ namespace Assignment3.Utility
             }
         }
 
-        public int GetValue(int index)
+        public int IndexOf(User data)
+        {
+            int index = 0;
+            Node current = head;
+            while (current != null)
+            {
+                if (current.data == data)
+                {
+                    return index;
+                }
+                index++;
+                current = current.next;
+            }
+            return -1;
+        }
+
+        public User GetValue(int index)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index must be non-negative.");
@@ -162,6 +199,18 @@ namespace Assignment3.Utility
                 current = current.next;
             }
             return result.Trim();
+        }
+
+        public bool Contains(User data)
+        {
+            bool containsData = false;
+            Node current = head;
+            while (current != null)
+            {
+                if (current.data == data) { containsData = true; break; }
+                current = current.next;
+            }
+            return containsData;
         }
     }
 }

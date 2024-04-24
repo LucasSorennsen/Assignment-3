@@ -1,4 +1,5 @@
 using Assignment3;
+using Assignment3.Utility;
 
 namespace Assignment3.Tests
 {

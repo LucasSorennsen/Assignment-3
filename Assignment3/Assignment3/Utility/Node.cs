@@ -8,11 +8,11 @@ namespace Assignment3.Utility
 {
     public class Node
     {
-        public int data;
+        public User data;
 
         public Node next;
 
-        public Node(int d)
+        public Node(User d)
         {
             data = d;
             next = null;
